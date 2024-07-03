@@ -14,6 +14,6 @@
 }
 body {
   background-color: rgb(8, 1, 22);
-@apply max-w-sm p-4 min-h-screen;
+@apply p-4 min-h-screen;
 }
 
