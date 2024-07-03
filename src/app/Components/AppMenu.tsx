@@ -4,10 +4,10 @@ import { usePathname } from "next/navigation";
 const AppMenu = () => {
   const pathname = usePathname();
   const style =
-    "bg-gray-800 rounded-sm flex flex-grow shadow-lg w-16 h-14 justify-center items-center";
+    "bg-gray-800 rounded-sm flex flex-grow h-14 justify-center items-center";
 
   return (
-    <div style={{maxWidth:'inherit', width:'inherit'}} className="bg-slate-950 flex pt-4  gap-3 h-28 bottom-0 fixed ">
+    <div style={{maxWidth:'inherit', width:'inherit'}} className="bg-slate-950 flex pt-4 mx-auto  gap-3 h-28 bottom-0 fixed ">
       <div className={`${style} ${pathname == "/Refs" ? "opacity-50" : ""}`}>
         <Link className="text-white" href="/Refs">
           Refs
