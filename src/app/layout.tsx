@@ -20,7 +20,7 @@ export default function RootLayout({
         <div className="overflow-y h-fit pb-32 pt-6 ">
         {children}
         </div>
-        <div>
+        <div style={{maxWidth:"416px", width:"100%"}}  className="flex  relative">
         <AppMenu/>
         </div>
       </body>
