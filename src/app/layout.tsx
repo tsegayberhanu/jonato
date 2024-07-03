@@ -17,10 +17,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="overflow-y h-fit pb-32 pt-6 ">
+        <div className="overflow-y flex justify-center items-center h-fit pb-32 pt-6 px-4 ">
         {children}
         </div>
-        <div style={{maxWidth:"416px", width:"90%"}}>
+        <div >
         <AppMenu/>
         </div>
       </body>
