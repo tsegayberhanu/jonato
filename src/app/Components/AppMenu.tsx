@@ -7,7 +7,7 @@ const AppMenu = () => {
     "bg-gray-800 rounded-sm flex flex-grow min-w-16 h-14 justify-center items-center";
 
   return (
-    <div  className="bg-red-950 w-full flex px-4 flex-wrap self-center pt-4 pb-12 gap-3 h-28 bottom-0 fixed ">
+    <div  className="bg-slate-950 w-full flex px-4 flex-wrap self-center pt-4 pb-14 gap-3 h-28 bottom-0 fixed ">
       <div className={`${style} ${pathname == "/Refs" ? "opacity-50" : ""}`}>
         <Link className="text-white" href="/Refs">
           Refs
