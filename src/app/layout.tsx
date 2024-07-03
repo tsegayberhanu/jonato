@@ -10,19 +10,22 @@ export const metadata: Metadata = {
 };
 import AppMenu from "./Components/AppMenu";
 export default function RootLayout({
-  children,
+    children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  
+
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="overflow-y flex justify-center h-fit pb-32 pt-6 px-4 ">
+        <main className="overflow-y p-4 pb-32 pt-6  ">
         {children}
-        </div>
-        <div >
+        </main>
+        <footer >
         <AppMenu/>
-        </div>
+        </footer>
       </body>
     </html>
   );
