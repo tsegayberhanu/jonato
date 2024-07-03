@@ -4,10 +4,11 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 const AppMenu = () => {
 
-  const [bodyWidth, setBodyWidth] = useState(352);
+  const [bodyWidth, setBodyWidth] = useState(0);
   console.log(bodyWidth)
 
   useEffect(() => {
+    setBodyWidth(window.innerWidth)
     const handleResize = () => setBodyWidth( window.innerWidth);
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
