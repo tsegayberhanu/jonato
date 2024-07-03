@@ -15,7 +15,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <main className="overflow-y pb-32 pt-6">
+        <main className="overflow-y pb-36 pt-6">
         {children}
         </main>
         <footer >

@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import AppMenu from "./Components/AppMenu";
 interface Bubble {
   id: string;
   top: string;
