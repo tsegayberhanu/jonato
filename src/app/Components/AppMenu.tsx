@@ -4,10 +4,10 @@ import { usePathname } from "next/navigation";
 const AppMenu = () => {
   const pathname = usePathname();
   const style =
-    "bg-gray-800 rounded-sm flex shadow-lg w-16 h-14 justify-center items-center";
+    "bg-gray-800 rounded-sm flex flex-grow shadow-lg w-16 h-14 justify-center items-center";
 
   return (
-    <div className="max-w-screen-sm bg-slate-950 flex gap-4 pr-1 h-28 bottom-0 fixed ">
+    <div className="bg-slate-950 flex gap-6 h-28 bottom-0 fixed ">
       <div className={`${style} ${pathname == "/Refs" ? "opacity-50" : ""}`}>
         <Link className="text-white" href="/Refs">
           Refs
@@ -36,5 +36,4 @@ const AppMenu = () => {
     </div>
   );
 };
-
 export default AppMenu;

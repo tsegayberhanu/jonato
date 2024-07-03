@@ -17,10 +17,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="overflow-y h-fit px-2 pb-32 pt-6 ">
+        <div className="overflow-y h-fit pb-32 pt-6 ">
         {children}
         </div>
+        <div>
         <AppMenu/>
+        </div>
       </body>
     </html>
   );
