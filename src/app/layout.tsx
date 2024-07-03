@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="overflow-y flex justify-center items-center h-fit pb-32 pt-6 px-4 ">
+        <div className="overflow-y flex justify-center h-fit pb-32 pt-6 px-4 ">
         {children}
         </div>
         <div >
