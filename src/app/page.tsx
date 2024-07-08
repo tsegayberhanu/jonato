@@ -6,6 +6,7 @@ interface Bubble {
   left: string;
 }
 export default function Home() {
+  
   const [energyLimit] = useState(1000);
   const [tankCoins, setTankCoins] = useState(1000);
   const [count, setCount] = useState(0);
@@ -106,4 +107,5 @@ export default function Home() {
       </div>
     </div>
   );
+
 }
