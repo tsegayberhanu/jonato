@@ -22,7 +22,7 @@ const AppMenu = () => {
         </Link>
       </div>
       <div className={`${style} ${pathname.startsWith("/Tasks") ? "opacity-50" : ""}`}>
-        <Link className="text-white" href="/Tasks">
+        <Link className="text-white" href="/Tasks/Socials">
           Tasks
         </Link>
       </div>

@@ -5,9 +5,9 @@ import { usePathname } from "next/navigation";
 
 const AppTaskMenu = () => {
   const pathname = usePathname();
-  const btnStyle = "text-white p-1 rounded-md font-semibold  hover:bg-black ";
+  const btnStyle = "text-white p-2 rounded-md font-semibold  hover:bg-black ";
   return (
-    <div className="flex  justify-evenly bg-gray-900 p-3 rounded-md sticky top-4">
+    <div className="flex  justify-evenly bg-gray-900 p-2 rounded-md sticky top-4">
       <button
         className={`${btnStyle} ${
           pathname == "/Tasks/Socials" ? "bg-black" : ""
