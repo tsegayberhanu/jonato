@@ -1,18 +1,30 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRef } from "react";
 import Image, { StaticImageData } from "next/image";
+import WebApp from "@twa-dev/sdk";
+
 interface AppAdCardProps {
-  adImageSrc: StaticImageData;
-  adModalTitle?: string;
-  adDescription?: string;
-  adValue?: string;
+  adCardId?:string;
+  adCardType?:string;
+  adCardImageSrc: StaticImageData;
+  adCardCost?: string;
   adCardTitle: string;
+  adCardLevel?:number;
+  adCardModalTitle?: string;
+  adCardDescription?: string;
+  
 }
-const AppAddCard = ({ adCardTitle, adImageSrc }: AppAdCardProps) => {
+
+const AppAddCard = ({ adCardTitle, adCardDescription, adCardImageSrc, adCardLevel, adCardCost }: AppAdCardProps) => {
+
+  useEffect(()=>{
+    console.log(WebApp.initData)
+  },[])
+
   const modalRef = useRef<HTMLDialogElement | null>(null);
   const [showModal, setShowModal] = useState(false);
-
+  
   const handleClick = () => {
     setShowModal(!showModal);
     showModal ? modalRef.current?.close() : modalRef.current?.showModal();
@@ -35,12 +47,12 @@ const AppAddCard = ({ adCardTitle, adImageSrc }: AppAdCardProps) => {
           </div>
           <div>
             <p className="text-xl p-4 self-center  text-white font-semibold">
-              Green Tech Africa
+              {adCardTitle}
             </p>
           </div>
           <div className="relative w-full flex justify-center">
             <Image
-              src={adImageSrc}
+              src={adCardImageSrc}
               height={50}
               width={100}
               alt="Afri Logo"
@@ -48,10 +60,7 @@ const AppAddCard = ({ adCardTitle, adImageSrc }: AppAdCardProps) => {
             />
           </div>
           <div className="text-white max-w-sm p-2">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Alias
-            neque nostrum quibusdam rerum magni corporis, ratione voluptates
-            fugit repudiandae a nemo dignissimos quod! Blanditiis libero
-            deserunt asperiores rem officia quod.
+            {adCardDescription}
           </div>
           <div className="w-full flex justify-center">
             <button
@@ -63,6 +72,7 @@ const AppAddCard = ({ adCardTitle, adImageSrc }: AppAdCardProps) => {
           </div>
         </div>
       </dialog>
+
       <div
         onClick={handleClick}
         className="bg-gray-900  text-white h-fit  p-2 w-1/3  flex flex-col gap-2 justify-center items-center flex-grow  rounded-md "
@@ -70,7 +80,7 @@ const AppAddCard = ({ adCardTitle, adImageSrc }: AppAdCardProps) => {
         <div className="flex h-fit gap-4 pb-2">
           <div className="self-center h-16 w-16">
             <Image
-              src={adImageSrc}
+              src={adCardImageSrc}
               alt="niber icon"
               height={90}
               width={120}
@@ -84,18 +94,19 @@ const AppAddCard = ({ adCardTitle, adImageSrc }: AppAdCardProps) => {
             </div>
             <div>
               <p className="text-slate-100 text-xs ">profit per hour</p>
-              <p className="text-white">2.51k</p>
+              <p className="text-white">{adCardLevel}</p>
             </div>
           </div>
         </div>
         <div className=" border-b-slate-950 border-b w-full"></div>
 
         <div className="flex justify-around gap-2 ">
-          <div className="text-sm">lvl 0</div>
+          <div className="text-sm">lvl {adCardLevel}</div>
           <div className=" border-r-slate-950 border-r"></div>
-          <div className="text-sm">120000</div>
+          <div className="text-sm">{adCardCost}</div>
         </div>
       </div>
+      
     </>
   );
 };

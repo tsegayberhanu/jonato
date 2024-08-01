@@ -1,11 +1,13 @@
 "use client";
 import React from "react";
-import { useState, useRef } from "react";
+import { useState, useRef, useContext } from "react";
 import { IoIosArrowForward} from "react-icons/io";
 import { IoClose } from "react-icons/io5";
+import { MultitapContext } from "../Contexts/MultitapContext";
 
 interface BoostCardProps extends BoostProps, BoostMaximazedProps {
-  
+  booster: () => void,
+  checkEligibility:boolean
 }
 
 const BoostCard = ({
@@ -15,29 +17,37 @@ const BoostCard = ({
   boostUnit,
   boostTarget,
   boostLongDescription,
-  boostShortDescription
+  boostShortDescription, 
+  checkEligibility,
+  booster
 }:BoostCardProps) => {
+
+   
+
   const modalRef = useRef<HTMLDialogElement | null>(null);
   const [showModal, setShowModal] = useState(false);
 
-  const handleClick = () => {
-
+  const modalhandler = () => {
     setShowModal(!showModal);
     showModal ? modalRef.current?.close() : modalRef.current?.showModal();
-
   };
+  const boost = () => {
+      booster()
+      modalhandler()
+  }
+
   return (
     <div>
       <dialog ref={modalRef}>
         <div style={{ boxShadow: "0 -4px 50px rgb(249 250 251)" }} className=" bg-gray-950 bg-opacity-90 border-t border-t-white rounded-t-3xl py-4 px-8 pb-12 text-white flex flex-col gap-6 items-center  border-black fixed right-0 bottom-0 h-3/4 w-full">
           <div className="self-end text-xl">
-            <button onClick={handleClick}>
+            <button onClick={modalhandler}>
               <IoClose className="h-8 w-8" />
             </button>
           </div>
                <BoostMaximazed boostTitle={boostTitle} BoostIcon={BoostIcon} boostLongDescription={boostLongDescription} boostShortDescription={boostShortDescription} boostTarget={boostTarget}  boostUnit={boostUnit} boostUpCoin={boostUpCoin} />
           <button
-            onClick={handleClick}
+            onClick={boost}
             className="w-full bg-purple-800 bg-opacity-95 rounded-lg p-4"
           >
             Get It!
@@ -45,7 +55,7 @@ const BoostCard = ({
         </div>
       </dialog>
 
-      <div className="flex justify-between p-3 bg-slate-500 bg-opacity-10 text-white rounded-md">
+      <button disabled = {!checkEligibility} onClick={modalhandler}  className={`flex justify-between w-full p-3 bg-slate-700 ${checkEligibility?'bg-opacity-30':'bg-opacity-20'}   text-white rounded-md`}>
         <Boost
           boostTitle={boostTitle}
           BoostIcon={BoostIcon}
@@ -54,10 +64,10 @@ const BoostCard = ({
           boostUpCoin={boostUpCoin}
         />
 
-        <div onClick={handleClick} className="self-center cursor-pointer">
-          <IoIosArrowForward className="h-8 w-8" />
+        <div className="self-center ">
+          <IoIosArrowForward className={`h-8 w-8 ${checkEligibility ? '' : 'text-gray-600'}`} />
         </div>
-      </div>
+      </button>
     </div>
   );
 };

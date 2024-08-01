@@ -7,7 +7,7 @@ import { IoCheckmark, IoCheckmarkDone } from "react-icons/io5";
 import { useState } from "react";
 
 interface SocialAccordionProps {
-  totalPoints: number;
+  rewardPoints: number;
   socialTitle: string;
   SocialIcon: React.ReactElement;
   children: React.ReactNode;
@@ -15,7 +15,7 @@ interface SocialAccordionProps {
 }
 
 const SocialAccordion = ({
-  totalPoints,
+  rewardPoints,
   socialTitle,
   SocialIcon,
   children,
@@ -45,7 +45,7 @@ const SocialAccordion = ({
 
             {unDonetask ? <IoCheckmark className="w-8 h-8" /> : <IoCheckmarkDone className="w-8 h-8" /> }
           
-          <p className="self-center">{totalPoints}</p>
+          <p className="self-center">{rewardPoints}</p>
         </div>
 
         <div className="self-center ">
