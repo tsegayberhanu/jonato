@@ -11,7 +11,6 @@ export default function Home() {
  
   const { balance, increaseBalance, decreaseBalance } =
     useContext(CoinBalanceContext);
-  console.log(balance);
 
   const [energyLimit] = useState(1000);
   const [tankCoins, setTankCoins] = useState(1000);
