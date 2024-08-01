@@ -22,7 +22,7 @@ export default function RootLayout({
         <main className="overflow-y pb-28 pt-6">
           <AppContextProvider>{children}</AppContextProvider>
         </main>
-        <footer>
+        <footer >
           <AppMenu />
         </footer>
       </body>
