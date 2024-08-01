@@ -1,15 +1,12 @@
 "use client";
 import React from "react";
-import { useState, useRef, useContext } from "react";
+import { useState, useRef} from "react";
 import { IoIosArrowForward} from "react-icons/io";
 import { IoClose } from "react-icons/io5";
-import { MultitapContext } from "../Contexts/MultitapContext";
-
 interface BoostCardProps extends BoostProps, BoostMaximazedProps {
   booster: () => void,
   checkEligibility:boolean
 }
-
 const BoostCard = ({
   boostTitle,
   BoostIcon,
@@ -71,9 +68,7 @@ const BoostCard = ({
     </div>
   );
 };
-
 export default BoostCard;
-
 interface BoostProps {
   boostTitle: string;
   BoostIcon: React.ReactElement;
@@ -81,7 +76,6 @@ interface BoostProps {
   boostUnit: string;
   boostTarget: number;
 }
-
 const Boost = ({
   boostTitle,
   BoostIcon,
@@ -110,12 +104,10 @@ const Boost = ({
     </div>
   );
 };
-
 interface BoostMaximazedProps extends BoostProps {
   boostLongDescription:string;
   boostShortDescription:string
 }
-
 const BoostMaximazed = ({boostTitle,
   BoostIcon,
   boostUpCoin,

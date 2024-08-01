@@ -1,13 +1,13 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useRef } from "react";
 import Image, { StaticImageData } from "next/image";
-import WebApp from "@twa-dev/sdk";
 
 interface AppAdCardProps {
   adCardId?:string;
   adCardType?:string;
   adCardImageSrc: StaticImageData;
+  adCardImageAlt:string;
   adCardCost?: string;
   adCardTitle: string;
   adCardLevel?:number;
@@ -16,12 +16,7 @@ interface AppAdCardProps {
   
 }
 
-const AppAddCard = ({ adCardTitle, adCardDescription, adCardImageSrc, adCardLevel, adCardCost }: AppAdCardProps) => {
-
-  useEffect(()=>{
-    console.log(WebApp.initData)
-  },[])
-
+const AppAddCard = ({ adCardTitle, adCardDescription,adCardImageAlt, adCardImageSrc, adCardLevel, adCardCost }: AppAdCardProps) => {
   const modalRef = useRef<HTMLDialogElement | null>(null);
   const [showModal, setShowModal] = useState(false);
   
@@ -55,7 +50,7 @@ const AppAddCard = ({ adCardTitle, adCardDescription, adCardImageSrc, adCardLeve
               src={adCardImageSrc}
               height={50}
               width={100}
-              alt="Afri Logo"
+              alt={adCardImageAlt}
               className="bg-inherit  rounded-sm"
             />
           </div>
@@ -81,7 +76,7 @@ const AppAddCard = ({ adCardTitle, adCardDescription, adCardImageSrc, adCardLeve
           <div className="self-center h-16 w-16">
             <Image
               src={adCardImageSrc}
-              alt="niber icon"
+              alt={adCardImageAlt}
               height={90}
               width={120}
               className="shadow-inner bg-white rounded-sm border-4 border-white"

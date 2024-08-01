@@ -1,11 +1,8 @@
 "use client";
 import React from "react";
-
 import { FaAngleDown, FaAngleUp } from "react-icons/fa";
 import { IoCheckmark, IoCheckmarkDone } from "react-icons/io5";
-
 import { useState } from "react";
-
 interface SocialAccordionProps {
   rewardPoints: number;
   socialTitle: string;
@@ -13,7 +10,6 @@ interface SocialAccordionProps {
   children: React.ReactNode;
   unDonetask: boolean;
 }
-
 const SocialAccordion = ({
   rewardPoints,
   socialTitle,
@@ -66,5 +62,4 @@ const SocialAccordion = ({
     </div>
   );
 };
-
 export default SocialAccordion;
