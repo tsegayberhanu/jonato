@@ -1,16 +1,25 @@
 "use client";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { CoinBalanceContext } from "../Contexts/CoinBalanceContext";
+import { MultitapContext } from "../Contexts/MultitapContext";
+
 interface Bubble {
   id: string;
   top: string;
   left: string;
 }
+
 export default function Home() {
+  
   const [energyLimit] = useState(1000);
   const [tankCoins, setTankCoins] = useState(1000);
   const [count, setCount] = useState(0);
   const [bubbles, setBubbles] = useState<Bubble[]>([]);
+  const {balance, increaseBalance} = useContext(CoinBalanceContext)
+  const {tapValue} = useContext(MultitapContext)
 
+  console.log(tapValue, "tap value")
+  
   const handleTouchEnd = (event: React.TouchEvent<HTMLElement>) => {
     event.preventDefault();
     const touches = event.changedTouches;
@@ -28,23 +37,27 @@ export default function Home() {
   };
 
   const handleTouchStart = (event: React.TouchEvent<HTMLElement>) => {
-    const touches = event.changedTouches;
-    console.log(touches[0].identifier);
-    setCount(count + 1); // Increment points on each tap
-    setTankCoins(tankCoins - 1);
-    const tapX = event.touches[0].clientX;
-    const tapY = event.touches[0].clientY;
-    // Create new bubble with initial position at tap position
-    const newBubble = {
-      id: `${touches[0].identifier}-${Date.now().toLocaleString()}`,
-      top: `${tapY - 16}px`, // Set initial top position to tap Y coordinate
-      left: `${tapX - 16}px`, // Set initial left position to tap X coordinate
-    };
-    setBubbles([...bubbles, newBubble]);
-    // Remove the bubble after 500ms
-    setTimeout(() => {
-      setBubbles(bubbles.filter((bubble) => bubble.id !== newBubble.id));
-    }, 500);
+    if(tankCoins > tapValue) {
+      const touches = event.changedTouches;
+      setCount(count => count+tapValue); // Increment points on each tap
+      increaseBalance(tapValue)
+      setTankCoins(tankCoins => tankCoins - tapValue);
+  
+      const tapX = event.touches[0].clientX;
+      
+      const tapY = event.touches[0].clientY;
+      // Create new bubble with initial position at tap position
+      const newBubble = {
+        id: `${touches[0].identifier}-${Date.now().toLocaleString()}`,
+        top: `${tapY - 16}px`, // Set initial top position to tap Y coordinate
+        left: `${tapX - 16}px`, // Set initial left position to tap X coordinate
+      };
+      setBubbles([...bubbles, newBubble]);
+      // Remove the bubble after 500ms
+      setTimeout(() => {
+        setBubbles(bubbles.filter((bubble) => bubble.id !== newBubble.id));
+      }, 500);
+    }
   };
 
   const progress = (tankCoins / energyLimit) * 100;
@@ -58,7 +71,7 @@ export default function Home() {
               <p className="text-3xl text-yellow-400 font-bold">$</p>
             </div>
             <div>
-              <p className="text-3xl font-bold text-white">{count}</p>
+              <p className="text-3xl font-bold text-white">{balance}</p>
             </div>
           </div>
           <div>
@@ -84,7 +97,7 @@ export default function Home() {
               animation: "bubbleUp 0.5s forwards",
             }}
           >
-            +1
+            +{tapValue}
           </div>
         ))}
       </div>
