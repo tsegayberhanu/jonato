@@ -1,12 +1,18 @@
 "use client";
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
+import { CoinBalanceContext } from "./Contexts/CoinBalanceContext";
 interface Bubble {
   id: string;
   top: string;
   left: string;
 }
+
 export default function Home() {
-  
+ 
+  const { balance, increaseBalance, decreaseBalance } =
+    useContext(CoinBalanceContext);
+  console.log(balance);
+
   const [energyLimit] = useState(1000);
   const [tankCoins, setTankCoins] = useState(1000);
   const [count, setCount] = useState(0);
@@ -107,5 +113,4 @@ export default function Home() {
       </div>
     </div>
   );
-
 }
