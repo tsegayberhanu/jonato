@@ -1,24 +1,22 @@
-"use client"
+"use client";
 import React, { useEffect, useState } from "react";
 import WebApp from "@twa-dev/sdk";
 const StatsUI = () => {
   const [appData, setAppData] = useState<string>("");
-  const [version, setVersion] = useState<string>("in")
+  const [version, setVersion] = useState<string>("in");
   useEffect(() => {
-      setVersion(WebApp.version)
-      setAppData(WebApp.initData)
+    if (typeof window !== "undefined") {
+      setVersion(WebApp.version);
+      setAppData(WebApp.initData);
+    }
   }, []);
   return (
     <div className="flex flex-col items-center gap-4 text-white">
       <div className="text-white text-3xl">Stats</div>
 
-      <div>
-        {version}
-      </div>
+      <div>{version}</div>
 
-      <div className="text-white">
-        {appData}
-      </div>
+      <div className="text-white">{appData}</div>
 
       <div className="flex flex-col items-center">
         <p className="text-xl font-bold">Total Share Balance</p>
@@ -44,7 +42,6 @@ const StatsUI = () => {
         <p className="font-semibold">online players</p>
         <p className="font-thin">90000</p>
       </div>
-
     </div>
   );
 };
