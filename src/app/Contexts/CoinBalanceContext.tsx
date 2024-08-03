@@ -2,7 +2,7 @@
 import React, { createContext, useState } from "react";
 
 const CoinBalanceContext = createContext({
-  balance: 10000,
+  balance: 0,
   increaseBalance: (amount: number) => {},
   decreaseBalance: (amount: number) => {},
 });
