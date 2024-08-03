@@ -1,6 +1,8 @@
 "use client";
 import { useState, useContext, useEffect } from "react";
 import { CoinBalanceContext } from "./Contexts/CoinBalanceContext";
+import { AppUserContext } from "./Contexts/AppUserProvider";
+
 interface Bubble {
   id: string;
   top: string;
@@ -11,6 +13,8 @@ export default function Home() {
  
   const { balance, increaseBalance, decreaseBalance } =
     useContext(CoinBalanceContext);
+
+    const { first_name } = useContext(AppUserContext)
 
   const [energyLimit] = useState(1000);
   const [tankCoins, setTankCoins] = useState(1000);
@@ -57,6 +61,9 @@ export default function Home() {
 
   return (
     <div className="flex flex-col items-center gap-4">
+      <div className="text-white">
+        {first_name}
+      </div>
       <div>
         <div className="flex flex-col gap-2">
           <div className="flex gap-1">
