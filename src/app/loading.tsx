@@ -1,8 +1,7 @@
 import React from 'react'
-
 const loading = () => {
   return (
-    <div>loading .... </div>
+    <div className='text-yellow-400 text-xl'>loading .... </div>
   )
 }
 
