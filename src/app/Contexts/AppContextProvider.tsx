@@ -6,10 +6,11 @@ import { RechargeSpeedProvider } from "./RechargeSpeedContext";
 import { WorkingHoursProvider } from "./WorkingHoursContext";
 import { SocialTasksProvider } from "./SocialTasksContext";
 import { AppUserProvider } from "./AppUserProvider";
+import { TankCoinProvider } from "./TankCoinContext";
+
 interface ProviderProps {
   children: React.ReactNode;
 }
-
 const AppContextProvider = ({ children }: ProviderProps) => {
   return (
     <AppUserProvider>
@@ -18,7 +19,11 @@ const AppContextProvider = ({ children }: ProviderProps) => {
           <EnergyLimitProvider>
             <RechargeSpeedProvider>
               <WorkingHoursProvider>
-                <SocialTasksProvider>{children}</SocialTasksProvider>
+                <SocialTasksProvider>
+                  <TankCoinProvider>
+                  {children}
+                  </TankCoinProvider>
+                  </SocialTasksProvider>
               </WorkingHoursProvider>
             </RechargeSpeedProvider>
           </EnergyLimitProvider>
