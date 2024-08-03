@@ -12,7 +12,7 @@ interface UserData {
 const StatsUI = () => {
   const [userData, setUserData] = useState<UserData | null>(null)
   useEffect(() => {
-    if(typeof window !== undefined){
+    if(typeof window !== "undefined"){
       if (WebApp.initDataUnsafe.user) {
         setUserData(WebApp.initDataUnsafe.user as UserData)
       }
