@@ -1,6 +1,6 @@
+"use client"
 import WebApp from "@twa-dev/sdk";
 import React, { createContext, useEffect, useState } from "react";
-
 interface UserData {
   id: number;
   first_name: string;
