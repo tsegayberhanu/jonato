@@ -1,4 +1,3 @@
-// File: app/api/bot/route.ts
 export const dynamic = "force-dynamic";
 export const fetchCache = "force-no-store";
 import { Bot, webhookCallback } from "grammy";
@@ -9,13 +8,13 @@ if (!token)
   throw new Error("TELEGRAM_BOT_TOKEN environment variable not found.");
 
 const communityButton = InlineKeyboard.url(
-  "Join Our Comminity",
-  "https://t.me/lelehamkeyBot"
+  "Join Jonato Comminity",
+  "https://t.me/LeleCryptos"
 );
 
 const webKeyButton = InlineKeyboard.url(
-  "Get Redeem Codes",
-  "https://t.me/lelehamkeyBot"
+  "Start Earning Jonato 🔮!",
+  "https://jonato.vercel.app"
 );
 
 const keyboard = new InlineKeyboard()
@@ -26,7 +25,7 @@ const bot = new Bot(token);
 
 bot.command("start", (ctx) => {
   const first_name = ctx?.from?.first_name;
-  return ctx.reply(`Hey, ${first_name} Welcome to Jonato! \n Embark on a digital treasure quest with Jonato! Dive into a world of hidden digital gems where each action reveals new riches. Gather Jonato, uncover secrets, and turn your clicks into real rewards. The hunt for the ultimate prize starts now!`, {
+  return ctx.reply(`Hey, ${first_name} Welcome to Jonato 🔮! \nEmbark on a digital treasure quest with Jonato!\nDive into a world of hidden digital gems where each action reveals new riches.\nGather Jonato, uncover secrets, and turn your clicks into real rewards.\nThe hunt for the ultimate prize starts now!`, {
     reply_markup: keyboard,
   });
 });
