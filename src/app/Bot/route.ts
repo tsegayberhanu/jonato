@@ -12,7 +12,7 @@ const communityButton = InlineKeyboard.url(
   "https://t.me/LeleCryptos"
 );
 
-const webKeyButton = InlineKeyboard.url(
+const webKeyButton = InlineKeyboard.webApp(
   "Start Earning Jonato 🔮!",
   "https://jonato.vercel.app"
 );
