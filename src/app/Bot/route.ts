@@ -17,24 +17,28 @@ const webKeyButton = InlineKeyboard.webApp(
   "https://jonato.vercel.app"
 );
 
-const keyboard = new InlineKeyboard()
-  .row(communityButton)
-  .row(webKeyButton)
+const keyboard = new InlineKeyboard().row(webKeyButton).row(communityButton);
 
 const bot = new Bot(token);
 
 bot.command("start", (ctx) => {
   const first_name = ctx?.from?.first_name;
-  return ctx.reply(`Hey, ${first_name} Welcome to Jonato 🔮! \nEmbark on a digital treasure quest with Jonato!\nDive into a world of hidden digital gems where each action reveals new riches.\nGather Jonato, uncover secrets, and turn your clicks into real rewards.\nThe hunt for the ultimate prize starts now!`, {
-    reply_markup: keyboard,
-  });
+  return ctx.reply(
+    `Hey, ${first_name} Welcome to Jonato 🔮! \nEmbark on a digital treasure quest with Jonato!\nDive into a world of hidden digital gems where each action reveals new riches.\nGather Jonato, uncover secrets, and turn your clicks into real rewards.\nThe hunt for the ultimate prize starts now!`,
+    {
+      reply_markup: keyboard,
+    }
+  );
 });
 
 bot.on("message:text", async (ctx) => {
   const first_name = ctx?.from?.first_name;
-  return ctx.reply(`Hey, ${first_name} Welcome to Jonato 🔮! \nEmbark on a digital treasure quest with Jonato!\nDive into a world of hidden digital gems where each action reveals new riches.\nGather Jonato, uncover secrets, and turn your clicks into real rewards.\nThe hunt for the ultimate prize starts now!`, {
-    reply_markup: keyboard,
-  });
+  return ctx.reply(
+    `Hey, ${first_name} Welcome to Jonato 🔮! \nEmbark on a digital treasure quest with Jonato!\nDive into a world of hidden digital gems where each action reveals new riches.\nGather Jonato, uncover secrets, and turn your clicks into real rewards.\nThe hunt for the ultimate prize starts now!`,
+    {
+      reply_markup: keyboard,
+    }
+  );
 });
 
 export const POST = webhookCallback(bot, "std/http");
