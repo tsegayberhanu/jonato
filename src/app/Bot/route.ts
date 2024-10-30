@@ -26,7 +26,7 @@ const bot = new Bot(token);
 
 bot.command("start", (ctx) => {
   const first_name = ctx?.from?.first_name;
-  return ctx.reply(`Hey, ${first_name} Welcome to my bot!`, {
+  return ctx.reply(`Hey, ${first_name} Welcome to Jonato! \n Embark on a digital treasure quest with Jonato! Dive into a world of hidden digital gems where each action reveals new riches. Gather Jonato, uncover secrets, and turn your clicks into real rewards. The hunt for the ultimate prize starts now!`, {
     reply_markup: keyboard,
   });
 });
