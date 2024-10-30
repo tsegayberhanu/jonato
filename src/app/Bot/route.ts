@@ -31,7 +31,10 @@ bot.command("start", (ctx) => {
 });
 
 bot.on("message:text", async (ctx) => {
-  await ctx.reply(ctx.message.text);
+  const first_name = ctx?.from?.first_name;
+  return ctx.reply(`Hey, ${first_name} Welcome to Jonato 🔮! \nEmbark on a digital treasure quest with Jonato!\nDive into a world of hidden digital gems where each action reveals new riches.\nGather Jonato, uncover secrets, and turn your clicks into real rewards.\nThe hunt for the ultimate prize starts now!`, {
+    reply_markup: keyboard,
+  });
 });
 
 export const POST = webhookCallback(bot, "std/http");
