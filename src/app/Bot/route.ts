@@ -37,7 +37,7 @@ bot.command("start", async (ctx) => {
   };
 
   try {
-    const user = await getUser(Number(userData.telegramId));
+    const user = userData.telegramId && await getUser(BigInt(userData.telegramId));
     let message;
     if (user) {
       message = `Hey, ${first_name}`;

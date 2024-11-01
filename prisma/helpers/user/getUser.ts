@@ -1,5 +1,5 @@
 import prisma from "@db/prisma";
-async function getUser(telegramId: number) {
+async function getUser(telegramId: bigint) {
   try {
     const user = await prisma.user.findUnique({
       where: { telegramId },
