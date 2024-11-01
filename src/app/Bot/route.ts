@@ -22,9 +22,8 @@ const keyboard = new InlineKeyboard().row(webKeyButton).row(communityButton);
 const bot = new Bot(token);
 
 bot.command("start", (ctx) => {
-  console.log(ctx)
-  console.log(ctx.from)
-  console.log(ctx.chat)
+  console.log(ctx.from, "from")
+  console.log(ctx.chat, "chat")
 
   const first_name = ctx?.from?.first_name;
   return ctx.reply(
