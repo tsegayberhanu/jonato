@@ -36,21 +36,26 @@ bot.command("start", async (ctx) => {
     isPremium: ctx?.from?.is_premium ?? false,
   };
 
-  const user = await getUser(Number(userData.telegramId));
-  let message;
-  if (user) {
-    message = `Hey, ${first_name}`;
-  } else {
-    await createUser(userData);
-    message = `Hey, ${first_name} Welcome to Jonato 🔮!`;
-  }
-
-  return ctx.reply(
-    `${message}\nEmbark on a digital treasure quest with Jonato!\nDive into a world of hidden digital gems where each action reveals new riches.\nGather Jonato, uncover secrets, and turn your clicks into real rewards.\nThe hunt for the ultimate prize starts now!`,
-    {
-      reply_markup: keyboard,
+  try {
+    const user = await getUser(Number(userData.telegramId));
+    let message;
+    if (user) {
+      message = `Hey, ${first_name}`;
+    } else {
+      await createUser(userData);
+      message = `Hey, ${first_name} Welcome to Jonato 🔮!`;
     }
-  );
+
+    return ctx.reply(
+      `${message}\nEmbark on a digital treasure quest with Jonato!\nDive into a world of hidden digital gems where each action reveals new riches.\nGather Jonato, uncover secrets, and turn your clicks into real rewards.\nThe hunt for the ultimate prize starts now!`,
+      {
+        reply_markup: keyboard,
+      }
+    );
+  } catch (error) {
+    console.error("Error handling user data:", error);
+    return ctx.reply("Sorry, there was an error processing your request.");
+  }
 });
 
 bot.on("message:text", async (ctx) => {
