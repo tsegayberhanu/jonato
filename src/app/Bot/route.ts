@@ -3,6 +3,9 @@ export const fetchCache = "force-no-store";
 import { Bot, webhookCallback } from "grammy";
 import { InlineKeyboard } from "grammy";
 
+import getUser from "@db/helpers/user/getUser";
+import createUser from "@db/helpers/user/createUser";
+
 const token = process.env.TELEGRAM_BOT_TOKEN;
 if (!token)
   throw new Error("TELEGRAM_BOT_TOKEN environment variable not found.");
@@ -21,8 +24,7 @@ const keyboard = new InlineKeyboard().row(webKeyButton).row(communityButton);
 
 const bot = new Bot(token);
 
-bot.command("start", (ctx) => {
-
+bot.command("start", async (ctx) => {
   const first_name = ctx?.from?.first_name;
   const userData = {
     telegramId: ctx?.from?.id,
@@ -31,16 +33,20 @@ bot.command("start", (ctx) => {
     username: ctx?.from?.username,
     languageCode: ctx?.from?.language_code,
     isBot: ctx?.from?.is_bot,
-    isPremium: ctx?.from?.is_premium,
+    isPremium: ctx?.from?.is_premium ?? false,
+  };
+
+  const user = await getUser(Number(userData.telegramId));
+  let message;
+  if (user) {
+    message = `Hey, ${first_name}`;
+  } else {
+    await createUser(userData);
+    message = `Hey, ${first_name} Welcome to Jonato 🔮!`;
   }
 
-  console.log(userData)
-
-
-
-
   return ctx.reply(
-    `Hey, ${first_name} Welcome to Jonato 🔮! \nEmbark on a digital treasure quest with Jonato!\nDive into a world of hidden digital gems where each action reveals new riches.\nGather Jonato, uncover secrets, and turn your clicks into real rewards.\nThe hunt for the ultimate prize starts now!`,
+    `${message}\nEmbark on a digital treasure quest with Jonato!\nDive into a world of hidden digital gems where each action reveals new riches.\nGather Jonato, uncover secrets, and turn your clicks into real rewards.\nThe hunt for the ultimate prize starts now!`,
     {
       reply_markup: keyboard,
     }
