@@ -1,0 +1,23 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           Int      @id @default(autoincrement())
+  telegramId   Int      @unique
+  firstName    String?
+  lastName     String?
+  username     String?
+  languageCode String?
+  isBot        Boolean
+  isPremium    Boolean
+  phoneNumber  String? // Only if the user shares it
+  currentLocation String? // Only if the user shares it
+  profilePhoto String? // File ID of the user's profile photo
+  status       String? // User's status
+}
