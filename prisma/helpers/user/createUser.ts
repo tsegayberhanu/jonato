@@ -1,4 +1,4 @@
-import prisma from "../../prisma";
+import prisma from "@db/prisma";
 async function createUser(data: any) {
     return prisma.user.create({
         data
