@@ -20,7 +20,7 @@ model User {
   currentLocation String? // Only if the user shares it
   profilePhoto String? // File ID of the user's profile photo
   status       String? // User's status
-  
+
   coinBalance         CoinBalance?
   referralsMade  Referral[]    @relation("Referrer")  // List of users referred by this user
   referredBy     Referral?     @relation("Referred")  // The referral record where this user was referred by another user
@@ -37,7 +37,7 @@ model CoinBalance {
 model Referral {
   id             Int       @id @default(autoincrement())
   referrerId     Int
-  referredId     Int
+  referredId     Int       @unique
   referralDate   DateTime  @default(now())
 
   referrer       User      @relation("Referrer", fields: [referrerId], references: [id])
