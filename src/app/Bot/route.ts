@@ -26,6 +26,10 @@ const bot = new Bot(token);
 
 bot.command("start", async (ctx) => {
   const first_name = ctx?.from?.first_name;
+  const startAppData = ctx?.match;
+
+  console.log(startAppData)
+
   const userData = {
     telegramId: ctx?.from?.id,
     firstName: ctx?.from?.first_name,
