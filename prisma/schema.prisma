@@ -21,3 +21,21 @@ model User {
   profilePhoto String? // File ID of the user's profile photo
   status       String? // User's status
 }
+
+
+model CoinBalance {
+  id             Int       @id @default(autoincrement())
+  userId         Int       @unique
+  balance        Int       @default(0)
+  user           User      @relation(fields: [userId], references: [id])
+}
+
+model Referral {
+  id             Int       @id @default(autoincrement())
+  referrerId     Int
+  referredId     Int
+  referralDate   DateTime  @default(now())
+
+  referrer       User      @relation("Referrer", fields: [referrerId], references: [id])
+  referredUser   User      @relation("Referred", fields: [referredId], references: [id])
+}
