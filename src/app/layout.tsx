@@ -5,8 +5,7 @@ const inter = Inter({ subsets: ["latin"] });
 import AppContextProvider from "./Contexts/AppContextProvider";
 export const metadata: Metadata = {
   title: "Jonato",
-  description: `Earn Rewards Effortlessly 
-  Discover Jonato, the innovative Telegram app that lets you earn rewards simply by tapping. No complex tasks, no time-consuming activities – just easy, fun, and rewarding.`,
+  description: `Earn Rewards Effortlessly\nDiscover Jonato, the innovative Telegram app that lets you earn rewards simply by tapping. No complex tasks, no time-consuming activities – just easy, fun, and rewarding.`,
 };
 import AppMenu from "./Components/AppMenu";
 import Script from "next/script";
