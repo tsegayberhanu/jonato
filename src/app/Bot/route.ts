@@ -14,21 +14,19 @@ const communityButton = InlineKeyboard.url(
   "Join Jonato Comminity",
   "https://t.me/LeleCryptos"
 );
-
 const webKeyButton = InlineKeyboard.webApp(
   "Start Earning Jonato 🔮!",
   "https://jonato.vercel.app"
 );
 
 const keyboard = new InlineKeyboard().row(webKeyButton).row(communityButton);
-
 const bot = new Bot(token);
 
 bot.command("start", async (ctx) => {
   const first_name = ctx?.from?.first_name;
   const startAppData = ctx?.match;
 
-  console.log(startAppData)
+  console.log(startAppData, "start app data")
 
   const userData = {
     telegramId: ctx?.from?.id,
@@ -39,6 +37,8 @@ bot.command("start", async (ctx) => {
     isBot: ctx?.from?.is_bot,
     isPremium: ctx?.from?.is_premium ?? false,
   };
+
+  console.log(userData, "user data")
 
   try {
     const user = userData.telegramId && await getUser(BigInt(userData.telegramId));
