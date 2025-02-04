@@ -42,7 +42,7 @@ const FriendComponent = () => {
 
 import { FaCopy } from "react-icons/fa";
 const InviteFriend = ({ userId }: RefereTelegramIdProp) => {
-  const INVITE_URL = "https://t.me/ezylBot/start";
+  const INVITE_URL = "https://t.me/jonatoBot/start";
   const handleInviteFriend = () => {
     const inviteLink = `${INVITE_URL}?startapp=${userId}`;
     const shareText = `Join me on this awesome Telegram mini app!`;
