@@ -26,33 +26,33 @@ const icons = {
 
 const telegramLinks = [
   {
-    taskId: "Shemu Group",
-    taskTitle: "Shemu Group",
+    taskId: "Tg Channel",
+    taskTitle: "Join Channel",
     taskReward: 200,
     taskLink: "task.link",
     isTaskDone: false,
     points: 200,
-    link: "https://t.me/concept_developer",
+    link: "https://t.me/Baermua",
   },
 
   {
-    taskId: "Green Tech Africa",
-    taskTitle: "Green Tech Africa",
+    taskId: "Tg Channel",
+    taskTitle: "Join Channel",
     taskReward: 200,
     taskLink: "task.link",
     isTaskDone: false,
     points: 200,
-    link: "https://t.me/concept_developer",
+    link: "https://t.me/Baermua",
   },
 
   {
-    taskId: "Afri General Trading",
-    taskTitle: "Afri General Trading",
+    taskId: "Tg Channel",
+    taskTitle: "Join Channel",
     taskReward: 200,
     taskLink: "task.link",
     isTaskDone: false,
     points: 200,
-    link: "https://t.me/concept_developer",
+    link: "https://t.me/Baermua",
   },
 ];
 
@@ -132,7 +132,7 @@ const SocialsUI = () => {
       >
         <SocialCard
           taskId={""}
-          taskTitle={"Shemu"}
+          taskTitle={"abc"}
           taskReward={200}
           taskLink={"task.link"}
           isTaskDone={false}
@@ -147,7 +147,7 @@ const SocialsUI = () => {
       >
         <SocialCard
           taskId={""}
-          taskTitle={"Shemu"}
+          taskTitle={"abc"}
           taskReward={200}
           taskLink={"task.link"}
           isTaskDone={false}
@@ -162,7 +162,7 @@ const SocialsUI = () => {
       >
         <SocialCard
           taskId={""}
-          taskTitle={"Shemu"}
+          taskTitle={"abc"}
           taskReward={200}
           taskLink={"task.link"}
           isTaskDone={false}
