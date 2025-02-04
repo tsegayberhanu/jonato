@@ -17,8 +17,8 @@ const page = () => {
     </div>
   );
 };
-export default page;
 
+export default page;
 const FriendComponent = () => {
   return (
     <div className="text-white flex w-full justify-between gap-6 p-2 rounded-md bg-slate-500 bg-opacity-10">
@@ -27,7 +27,7 @@ const FriendComponent = () => {
           <FaRegUser className="w-8 h-8" />
         </div>
         <div>
-          <p className="font-semibold">Izona</p>
+          <p className="font-semibold">User</p>
           <div className="flex gap-1">
             <p className="font-thin">level</p>
             <p className="font-thin">1000</p>
