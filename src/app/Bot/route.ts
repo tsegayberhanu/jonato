@@ -12,7 +12,7 @@ if (!token)
 
 const communityButton = InlineKeyboard.url(
   "Join Jonato Comminity",
-  "https://t.me/Baermua"
+  "https://t.me/JonatoCommunity"
 );
 const webKeyButton = InlineKeyboard.webApp(
   "Start Earning Jonato 🔮!",
